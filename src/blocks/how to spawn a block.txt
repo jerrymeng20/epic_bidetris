@@ -1,0 +1,28 @@
+for example a I block, you should call 
+
+Block::Block(std::vector<std::vector<Cell>> &alls_,
+                int r, int c, BlockType type_,
+                unsigned weight_)
+
+the alls_ parameter should be a reference to the whole grid of cells, so that I can 
+manipulate the interactions of cells.
+
+the r is the row number, the c is the c number. this means the lower left corner (smallest
+rectangle containing it), one cell above, of the new block is at this coordinate. if the target 4 cells
+are empty, then these 4 cells will be replaced with the new 4 cells but with the new
+block attributes (the type, the colour, the timestamp - same for 4 cells)
+
+or you just pass r = 3 (RESERV_ROW) c = 0
+
+this means that when a new game is started, all cells are spawned already with empty
+attribute, observers set.
+
+an empty cells doe not mean the cell doesn't exist.
+
+
+the default weight_ param is 0, the normal gameplay. by changing it to a higher number
+(eg 1) the block will move down weight_ units more.
+
+
+------------------------------
+cells are subjects, their observers are textdisplay and graphic display.

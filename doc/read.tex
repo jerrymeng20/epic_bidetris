@@ -1,0 +1,670 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\date{}
+
+\begin{document}
+
+The Epic Biquadris Project
+
+Author: y3285wan, y58meng, rzbai For: CS246 final project
+
+\hypertarget{introduction}{%
+\section{1. Introduction}\label{introduction}}
+
+This is our Biquadris project, made by Yang Wang (y3285wan), Yanchen
+Meng (y58meng), and Rong Zhuo Bai (rzbai). It is a modified version of
+the classic video game Tetris, according to the assignment 5 of Fall
+2019 CS246.
+
+\hypertarget{overview}{%
+\section{2. Overview}\label{overview}}
+
+This project has many components to it. The generic object components
+include the boards, the various block types (both abstract and concrete,
+and with the singular block required for Level 4), the cells within the
+boards, command types, and text and graphic displays. When put together,
+the project has the text display and graphic display both attached as
+event listeners, each board representing the board of the players. The
+boards contain cells which hold the states of the blocks which allows
+the general gameplay and board state, as well as allowing scoring to be
+done. The blocks are the ones found in standard Tetris games
+(i.e.~blocks shaped like I, J, L, O, S, T, Z), as well as the 1x1 extra
+block (``N'') that is added when playing the game at level 4.
+
+The specific game rules and types of inputs can be found in the
+assignment file, while parts not mentioned there will be introduced in
+Section 6.
+
+\hypertarget{design}{%
+\section{3. Design}\label{design}}
+
+\hypertarget{overview-1}{%
+\subsection{3.1 Overview}\label{overview-1}}
+
+By strictly sticking with the project guidelines and the principles of
+OOP the generic project components include \emph{abstract classes}
+\texttt{observer} and \texttt{subject}, which provide the base methods
+of interactions between each parts, and \emph{implementation classes}
+such as * Gameplay components, the \texttt{GameSession} and the
+\texttt{Board} that manipulates a game and serve for general purposes. *
+Game unit components, the \texttt{Cell} and the \texttt{Block}. In
+particular, we have 7 kinds of dropped blocks, I, J, L, O, S, T, Z (as
+found in standard Tetris game), and an N block that only works in some
+specific levels. * Leveling components, the \texttt{Spawner} which is
+embedded to each game. We have 5 levels differing in difficulty. * Info
+communicating widgets like \texttt{CellInfo} * The displayed contents
+are manipulated using \texttt{TextDisplay} and etc
+
+By isolating responsibilities we could reduce coupling and be able to
+work independently on modules. It is very lucky we convoyed the general
+class designs we created last week.
+
+\hypertarget{general-designing}{%
+\subsection{3.2 General designing}\label{general-designing}}
+
+We used observer pattern, factory pattern and others to minimize the
+coupling between algorithms and displays and between boards and blocks.
+For example, modifying display does not require further modification of
+board because the communication between them is mostly controlled by a
+single ``agent'', namely a structure containing the message which can
+potentially affect the displayed content. This way the board does not
+explicitly calls display. Similar rule applies for other components,
+which can be found in the following sections.
+
+We have default configuration files to store all the general settings of
+the program, such as the size of a game board. In the implementation, we
+use constants like \texttt{MAX\_COL} to represent to width of a game
+board. In this way, once we want to change this into something else,
+only one change in the configuration is needed. For simplicity, we will
+denote 11 for columns and 18 for rows.
+
+We could provide an entry to the game that will be responsible for
+assembling all the boards, levels, etc together to have an actual gaming
+session.
+
+\hypertarget{the-program-entry}{%
+\subsection{3.3 The program entry}\label{the-program-entry}}
+
+\hypertarget{class-gamesession}{%
+\subsubsection{\texorpdfstring{3.3.1
+\texttt{class\ GameSession}}{3.3.1 class GameSession}}\label{class-gamesession}}
+
+This is the interaction interface provided to user to initialize a game,
+give commands, and execute commands turn-wise. This class scans user's
+input via an undetermined input stream (that is, variable), recognizes
+it and executes the corresponding action for the game board. All the
+interactions between a \texttt{main} function with a game board will go
+through this class.
+
+a major challenge is to implement the command scanning. For this part,
+we used a \texttt{std::map} of strings and \texttt{CommandTypes} (an
+enumeration identifying different sorts of commands) for the game
+session (called a translation table). the commanding process mainly
+consists of two parts: * calls
+\texttt{CommandStructure\ scanCommand();}. This will return a structure
+containing the command type and the provided arguments. There are two
+kinds of command-recognition: 1. direct full-match. the user's input can
+be found in the translation table. 2. indirect match. we attempt to see
+if the given input is a proper prefix of some entries in the translation
+table by calling the library function. Then we will have a
+\texttt{prefix-whole\ word} matching, we will use the whole word to get
+the command type in the translation. * calls
+\texttt{bool\ useCommand(CommandStructure\ \&cs);} to execute the
+command based on arguments scanned (if any).
+
+In some special cases such as special ability session, similar process
+will be reused for the additional prompt. The process will repeat over
+and over again between two players until one wins.
+
+\hypertarget{scenes-behind}{%
+\subsection{3.4 Scenes behind}\label{scenes-behind}}
+
+Based on the single-responsibility principle, the board and the blocks
+will only move keep track of players and move blocks. They do not need
+to care about how to display them in the front. This is why the title
+says ``hehind''.
+
+\hypertarget{class-board}{%
+\subsubsection{\texorpdfstring{3.4.1
+\texttt{class\ Board}}{3.4.1 class Board}}\label{class-board}}
+
+The board has an 11x18 matrix containing cells (see section 3.4.2),
+including the top 3 rows reserved for block rotation. As a board
+represent a player here, it also contains a structure
+\texttt{PlayerInfo}, keeping track of information such as level, score,
+next block and so on. This is convenient because when on change, we only
+send this package to the displaying client, which will then be
+responsible for drawing them.
+
+For each turn, the \texttt{spawn} will be activated to generate a new
+block on the top left as well as predict the next block (written into
+player info).
+
+If the block cannot fit into the board when it spawns, the player loses,
+and the opposing player wins, which will be detected by
+\texttt{GameSession} by using \texttt{isLost} method. Then the block can
+be manipulated until a drop command is issued and sent from
+\texttt{GameSession}. The drop command effectively ends the player's
+turn, and the board will check for any full lines on the board, which
+will then be cleared and reset to empty cells. If the player clears more
+than lines with a block, the player gets to impose a negative effect on
+their opponent. Such information will also be detected by
+\texttt{GameSession}, thus the main function will know it is time to
+proceed to next player's turn.
+
+The block-eliminating process is interesting. Since additional scores
+will be calculated based on if there is a \emph{whole block} killed, we
+would need to set each spawned block unique. Once a block (manipulating
+4 cells) gets spawned, all of its 4 members will be given a
+``identification number'', making them unique from other cells. During
+the eliminating process, we check whether this identification number
+exists in all cells, if not, that means all cells that used to compose
+this block is killed, and we are successful. Here we use Unix time in
+milliseconds when the blocked is spawned as the ID. We so have a 1 ms
+delay before each spawning to ensure this works.
+
+The board cannot sole finish the task, so it has to accompany with its
+elements.
+
+\hypertarget{class-cell}{%
+\subsubsection{\texorpdfstring{3.4.2
+\texttt{class\ Cell}}{3.4.2 class Cell}}\label{class-cell}}
+
+The fundamental unit of the game. Each \texttt{Cell} object belongs to
+the board, and has attributes such as ``type'' (representing the type of
+block occupying it), ``ID'', and row/col numbers. Each cell can also
+create an info package, called \texttt{CellInfo} based on its current
+status. So the communication between cells and displays will be
+conducted using cell info, in which displaying clients will update the
+layout based on this information.
+
+All cells on the board last for the whole game. They are not replaced by
+a newer object, but instead refreshed into a new status (example:
+occupied by J -\textgreater{} empty), or swapped with another one cell.
+This is described more clearly is Section 3.5.1.
+
+\hypertarget{factories-and-packaging}{%
+\subsection{3.5 Factories and packaging}\label{factories-and-packaging}}
+
+A factory pattern must be employed to be able to spawn different kinds
+of objects but inherited from one common ancestor.
+
+Different from the previous plan, we packaged several classes by
+grouping different subclasses into one, so the programmer does not need
+to worry about which type of pointer they have to use, for example, in
+the past, we have to store an Level4 object in a Level (superclass)
+pointer, now we only need to store a Level object with type 4 in the
+same level pointer.
+
+\hypertarget{class-groupedcellscursor-aka-class-block}{%
+\subsubsection{\texorpdfstring{3.5.1 \texttt{class\ GroupedCellsCursor}
+aka
+\texttt{class\ Block}}{3.5.1 class GroupedCellsCursor aka class Block}}\label{class-groupedcellscursor-aka-class-block}}
+
+This class packages eight block type classes: \texttt{\_BlockI},
+\texttt{\_BlockJ}, \ldots, \texttt{\_BlockZ}, \texttt{\_BlockN}
+inherited from an abstract interface \texttt{\_Block} to achieve
+factory-like-spawning.
+
+We defined base method \texttt{\_movement} and \texttt{\_\_movement}
+(details in src/block/) for the interface \texttt{\_Block}, which can
+move the 4 cells into a specific location on the board (cell matrix),
+for example
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{bool}\NormalTok{ _Block::moveDown() \{}
+     \CommentTok{// returns false if the move is not successful}
+    \ControlFlowTok{return}\NormalTok{ _movement(\{}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{\}, \{}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{\}, orientation);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+defines a downward move, where \texttt{orientation} means the block's
+orientation after move, in this case, the move does not alter the
+orientation. This generic method is used for translational movement and
+rotational movement. This method provided in the base class
+\texttt{\_Block} is extremely useful because for its subclasses, when we
+need to consider special movement (like a rotation of an L block), we
+only need one line of (r-value) vector of displacements and all things
+can be done safely.
+
+The movement of a block is grouped by 4 cells. This class will directly
+manipulate the game board as an iterator, 4 cursors at the same time.
+When a movement is needed (ie the 4 cursors \emph{iterate} to the next
+element), the swapping idiom is used to swap information between 8
+associated cells (or less, if there is overlapping), then move the
+cursors to the target cells. By doing this, we do not kill/spawn cells,
+thus not worrying about re-registering subject-observer relations.
+
+Of course, programmers do not need to know this, because all classes are
+packed into this single class:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// spawning an L block at (3,0) to the matrix called theCell}
+\KeywordTok{auto}\NormalTok{ bl = }\KeywordTok{new}\NormalTok{ Block(theCell, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, BlockType::L, weight);}
+\CommentTok{// attempts to move down}
+\DataTypeTok{bool}\NormalTok{ successful = bl->moveDown();}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{class-levelwrapper}{%
+\subsubsection{\texorpdfstring{3.5.2
+\texttt{class\ LevelWrapper}}{3.5.2 class LevelWrapper}}\label{class-levelwrapper}}
+
+This class packs classes \texttt{Level0}, \ldots, \texttt{Level4}
+inherited from an interface \texttt{Spawner}. It is easily used like
+this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// level 0 with provided sequence file}
+\KeywordTok{auto}\NormalTok{ spawner = }\KeywordTok{new}\NormalTok{ LevelWrapper (}\DecValTok{0}\NormalTok{, playerInfo.seqfile);}
+\CommentTok{// predict the next block type}
+\NormalTok{BlockType nextBlock = spawner->nextBlock(); }\CommentTok{// BlockType is enum}
+\end{Highlighting}
+\end{Shaded}
+
+Based on the level in the player's info, the spawner may or may not be
+altered every turn. This effectively convoyed the factory method
+pattern, where generating blocks can be made painless.
+
+Inside the generation, we implement the randomness by random number
+generator, different for each level.
+
+\hypertarget{messenger-ization}{%
+\subsection{3.6 Messenger-ization}\label{messenger-ization}}
+
+To communicate between the game logic itself and the displayed contents
+or even between classes, a bridge must be built. A nice example is the
+info classes mentioned in previous sections, \texttt{CellInfo} and
+\texttt{PlayerInfo}. Letting classes message each other themselves, not
+by human, makes subject-observer pattern possible.
+
+\hypertarget{class-textdisplay}{%
+\subsubsection{\texorpdfstring{3.6.1
+\texttt{class\ TextDisplay}}{3.6.1 class TextDisplay}}\label{class-textdisplay}}
+
+The class is solely responsible for printing the \emph{board} into an
+text output stream. It is inherited from two template classes,
+\texttt{Observer\textless{}PlayerInfo\textgreater{}} and
+\texttt{Observer\textless{}CellInfo\textgreater{}} thus being able to
+receive two kinds of information sent by two kinds of senders. That is,
+this class has two \texttt{notify} methods, each responsible for one
+info type. This makes the class truly capable to handle all displaying
+tasks. In each info package, there is also the ``sender'' field so we
+can distinguish who sent the information so that we can update the
+display just for that player.
+
+An 2D matrix of characters is used to store the displayed content. We
+overloaded the \texttt{\textless{}\textless{}} operator so that it can
+be printed to the output stream.
+
+\hypertarget{class-graphicdisplay}{%
+\subsubsection{\texorpdfstring{3.6.2
+\texttt{class\ GraphicDisplay}}{3.6.2 class GraphicDisplay}}\label{class-graphicdisplay}}
+
+The working of this class is similar to text display, but there is one
+primary difference - it is slower by its natural circumstances. To deal
+with performance issues, we introduced ``part redraw'', that is, we only
+redraw part of the screen when receiving messages from subjects, instead
+of redrawing the whole screen. For example, when a block is moving, we
+only render again the area close to that block, letting alone the other
+parts.
+
+One other issue is that if too many notifications sent to the graphic,
+the graphic will redraw for each, slowing down the process. We thus
+given up some realizations of the observer pattern. We limit the amount
+of infos sent by subjects by, in some place, directly letting the board
+tell the graphic to update at some point, instead of letting cells to
+send infos to graphics individually (that will be 11*18 calls).
+
+\hypertarget{resilience-to-change}{%
+\section{4. Resilience to change}\label{resilience-to-change}}
+
+Our program supports possibilities to changes in various ways due to the
+low coupling of modules. As discussed in Section 3, most of our programs
+either interact using agents like \texttt{Info}, or by a packaged class
+like \texttt{LevelWrapper}. Hence the interfaces exposed between classes
+are relatively of less amount. In this way, minimal coupling can be
+achieved. Also, since our tasks are separated so aimfully, and each
+class is only responsible for one purpose, we have high cohesion. For
+example, the \texttt{GameSession} only reads and \emph{sends} execution
+signals to board. In fact, it does not even read from stdin, it just
+recognizes from a buffer passed to it in the constructor.
+
+\hypertarget{examples}{%
+\subsection{4.1 Examples}\label{examples}}
+
+We give some examples regarding possible changes.
+
+\hypertarget{changing-config}{%
+\subsubsection{4.1.2 Changing config}\label{changing-config}}
+
+We placed the common settings like board size in a configuration file.
+So it is very simple to change the game board to 100x100 in one click,
+instead of going over all the codes to change attributes separately.
+
+\hypertarget{changing-dialogue}{%
+\subsubsection{4.1.3 Changing dialogue}\label{changing-dialogue}}
+
+Long dialogues that we need to print out are not scattered across every
+implementation file. Instead, they are stored in a file called
+``dialogue.h'' with a namespace \texttt{diag}. Even non-programmers can
+understand these dialogues and change them as will.
+
+\hypertarget{adding-a-new-block-type}{%
+\subsubsection{4.1.4 Adding a new block
+type}\label{adding-a-new-block-type}}
+
+Making a new class, inherited from \texttt{\_Block} and packaged by
+\texttt{Block} is easy. In fact, most of the low level work is done by
+the superclass, we only need to consider two aspects: what does the
+block look like (its position layout) and how they move. To create a new
+Block class, say \texttt{MyI}, its constructor is very simple:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{_BlockMyI::_BlockMyI(CellGrid &}\VariableTok{alls_}\NormalTok{,}
+                \DataTypeTok{int}\NormalTok{ r, }\DataTypeTok{int}\NormalTok{ c,}
+                \DataTypeTok{unsigned} \VariableTok{weight_}\NormalTok{)}
+\NormalTok{    :_Block\{}
+        \VariableTok{alls_}\NormalTok{, }\VariableTok{weight_}\NormalTok{, BlockType::MyI, Colour::Cyan,}
+\NormalTok{        \{r,r,r,r\}, \{c,c+}\DecValTok{1}\NormalTok{,c+}\DecValTok{2}\NormalTok{,c+}\DecValTok{3}\NormalTok{\} }\CommentTok{// the only line that matters}
+\NormalTok{    \} }\CommentTok{// position of initial 4-cell configuration}
+\NormalTok{\{\}}
+\CommentTok{// this block cannot be rotated!}
+\DataTypeTok{bool}\NormalTok{ _BlockMyI::rotateCW() \{}
+    \ControlFlowTok{return} \KeywordTok{true}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+By just writing this method, you have already \texttt{moveLeft},
+\texttt{drop}, \texttt{atBottom} and so on, and with \texttt{rotateCW}
+overridden.
+
+\hypertarget{adding-commands}{%
+\subsubsection{4.1.5 Adding commands}\label{adding-commands}}
+
+Since commands only exist in \texttt{GameSession}, programmers are only
+required to modify this single class. They just need to figure out what
+is the name and what it does. By filling out the map described in 3.3.1
+(adding a pair of string and command type) and fill in
+\texttt{useCommand} for that case, it all done. Now that new command has
+number-prefix-notation, abbreviated forms just like others. Also, since
+only one class is changed, the recompilation is reduced.
+
+\hypertarget{redirect-io}{%
+\subsubsection{4.1.6 Redirect IO}\label{redirect-io}}
+
+By the high-cohesion principle, even \texttt{GameSession} and
+\texttt{TextDisplay} do not print and get texts themselves. The
+\texttt{TextDisplay} does not display text, but the overloaded operator
+does. All the IO streams can be initialized and switched with the
+provided ones, not just \texttt{cin}. For example, the inputs feed into
+\texttt{GameSession} can be changed arbitrarily, even something got from
+Internet using a \texttt{Boost} websocket.
+
+\hypertarget{answers-to-questions-from-project}{%
+\section{5. Answers to questions from
+project}\label{answers-to-questions-from-project}}
+
+\hypertarget{section}{%
+\subsubsection{5.1.1}\label{section}}
+
+\textbf{How} could you modify your existing design to allow for some
+generated blocks to disappear from the screen if not cleared before 10
+more blocks have fallen?\\
+We will add an attribute ``lifeTime'', parallel with ``ID'' described in
+3.4.2. Every turn this attribute will be incremented by one. Now the
+cell can also have a method called ``self-eliminate'', that also runs
+every turn, when that number is 10, this method refreshes the current
+cell into an empty cell.\\
+\textbf{Could} the generation of such blocks be easily confined to more
+advanced levels?\\
+Add an attribute called ``spawnLevel'' representing the level of the
+cell, the method mentioned above only works when the level meets
+requirements
+
+\hypertarget{section-1}{%
+\subsubsection{5.1.2}\label{section-1}}
+
+\textbf{How} could you design your program to accommodate the
+possibility of introducing additional levels into the system, with
+minimum recompilation?\\
+we can make a new \texttt{LevelX} class inherited from \texttt{Spawner}
+as in 3.5.2 that has different block spawn distributions. In this case
+only \texttt{LevelX.cc}, \texttt{levelwrapper.cc}, \texttt{board.cc} are
+(re)compiled.
+
+\hypertarget{section-2}{%
+\subsubsection{5.1.3}\label{section-2}}
+
+\textbf{How} could you design your program to allow for multiple effects
+to applied simultaneously? What if we invented more kinds of effects?\\
+For effects acting on a player him/herself like ``blind'', it will be
+packaged inside \texttt{PlayerInfo} and passed to the display client. We
+can have different message fields to achieve different effects
+simultaneously. For effects about Board/Blocks, there is an inherited,
+decorated object, say ``HeavyBlock'' that overwrites part of the
+movement method of a native Block. If we have more effects, we keep
+decorating.\\
+\textbf{Can} you prevent your program from having one else-branch for
+every possible combination?\\
+we make decorators for blocks so all effects will be condensed inside
+\emph{one} method (which may chain other methods).
+
+\hypertarget{section-3}{%
+\subsubsection{5.1.4}\label{section-3}}
+
+\textbf{How} could you design your system to accommodate the addition of
+new command names, or changes to existing command names, with minimal
+changes to source and minimal recompilation?\\
+See Section 4.1.5\\
+\textbf{How} difficult would it be to adapt your system to support a
+command whereby a user could rename existing commands?\\
+See Section 6.1.1 and 6.1.2.\\
+\textbf{How} might you support a ``macro'' language, which would allow
+you to give a name to a sequence of commands?\\
+See Section 6.1.3.
+
+\hypertarget{extra-credit-features}{%
+\section{6. Extra credit features}\label{extra-credit-features}}
+
+\hypertarget{aliasing-command}{%
+\subsubsection{6.1.1 Aliasing command}\label{aliasing-command}}
+
+Using the following syntax during a game enables players to give an
+alias for an existing command:
+
+\begin{verbatim}
+alias [1.name you want] [2.target command]
+\end{verbatim}
+
+When this is triggered, the translation table described in 3.3.1 will
+have an extra key-binding with the string \texttt{{[}1{]}} and the
+command type that \texttt{{[}2{]}} maps to.
+
+\hypertarget{renaming-command}{%
+\subsubsection{6.1.2 Renaming command}\label{renaming-command}}
+
+Using the following syntax during a game enables players to rename an
+existing command:
+
+\begin{verbatim}
+rename [1.command] [2.new name]
+\end{verbatim}
+
+Same as aliasing, but also deletes the original entry.
+
+\hypertarget{sequencing}{%
+\subsubsection{6.1.3 Sequencing}\label{sequencing}}
+
+Using the following syntax during a game defines a sequence
+
+\begin{verbatim}
+defseq [1.name] [2.your sequence .....
+\end{verbatim}
+
+This reads until newline. When command ``defseq'' is invoked, the parts
+1. command name and 2. the content of the sequence is read and packaged
+into a \texttt{CommandStructure} (see 3.3.1 for detail). A secondary
+translation table is present in \texttt{GameSession} with a
+\texttt{string-string} pair, the first is the macro name, second is its
+content. When a name is read, the class will also look up in this table,
+if present, then the following sequence will be converted into a
+\texttt{stringstream} and passed to the \texttt{GameSession}, which
+reads from a given stream. When that stringstream is exhausted, the
+input stream is restored to the original one.
+
+Issuing this will run the sequence of commands for both players
+
+\begin{verbatim}
+useseq [1.name]
+\end{verbatim}
+
+\hypertarget{player-savedata}{%
+\subsubsection{6.1.4 Player savedata}\label{player-savedata}}
+
+The highest scores will be stored locally in \texttt{savedata/},
+relative to the path of the program. When entering the game, the player
+will be notified about the local disk storage. When a new player (say
+with name ``Alice'') enters the game, a query will be generated
+containing her info. When the player's score is higher than the highest
+history score, the entry will be updated and saved.
+
+If Alice runs the game again, she can retain her data.
+
+\hypertarget{help-info}{%
+\subsubsection{6.1.5 Help info}\label{help-info}}
+
+Remember passing flag \texttt{-help} to the game executable displays a
+help command regarding usage of command arguments, and inputting
+\texttt{help} in the game triggers a help session.
+
+\hypertarget{final-questions}{%
+\section{7. Final questions}\label{final-questions}}
+
+\hypertarget{section-4}{%
+\subsubsection{7.1.1}\label{section-4}}
+
+\textbf{What} lessons did this project teach you about developing
+software in teams?\\
+We learned primarily two key things:\\
+1. The structure of the program must be determined before we do any
+coding. The UML diagrams are also important. Planning early not only can
+help us understanding the demands of clients, but also let us write more
+targeted and coupling-free modules. By having a good design we can
+separate our tasks early. For each of us, we only need to pay attention
+to the modules that we are responsible for and do not need to worry
+about other people so that we can be more concentrated and write better
+modules. 2. The communication is very important among our collaboration.
+Doing so can significantly decrease misunderstanding among developers so
+that the planned strategy does not end up in a mess where people write
+incompatible codes.
+
+\textbf{What} would you have done differently if you had the chance to
+start over?\\
+Our Block and Board does not convoy the decorator pattern very much so
+we ended up in some conditional checks when special actions are
+triggered. If there were a chance, our Block class could be decorated
+again to support more different kinds of special attributes.\\
+Also we would attempt to not depend on \texttt{XWindow} provided by the
+assignment because the colour scheme and layouts did not look very
+surprising to us. We would try learning the basics of XLib so that we
+could do the good things we wanted to see.
+
+\hypertarget{attachments}{%
+\section{8. Attachments}\label{attachments}}
+
+\begin{itemize}
+\tightlist
+\item
+  updated UML
+\end{itemize}
+
+\end{document}
